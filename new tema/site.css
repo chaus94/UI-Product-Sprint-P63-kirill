@@ -1,37 +1,225 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background-color: #f5f5f5;
+    margin: 0;
+    background: #f5f5f5;
+    font-family: "Montserrat", sans-serif;
 }
-.montserrat-regular {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+
+.site-header {
+    width: 100%;
+    border: 1px solid #98be2a;
 }
-.montserrat-500 {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-}
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 .header-action {
-    background-color: #98BE2A;
-    font-size: 18px;
-    height: 32px;
-    margin-left: 10px;
+    display: flex;
+    height: 19px;
+    align-items: center;
+    justify-content: center;
+    background: #98be2a;
+    color: #080d2c;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1;
 }
+
 .header-nav {
-    background-color: #0B1245;
-    height: 72px;
-    margin-left: 10px;
+    display: flex;
+    height: 39px;
+    align-items: center;
+    gap: clamp(14px, 2.4vw, 36px);
+    padding: 0 2.8%;
+    background: #0b1245;
 }
-.nav-menu {
-    margin: 28px 0 0 65px;
+
+.icon-button {
+    position: relative;
+    display: grid;
+    flex: 0 0 auto;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #fff;
 }
-.nav-logo {
-    
+
+.icon-button svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.5;
 }
+
+.menu-button {
+    width: 18px;
+}
+
+.menu-button svg {
+    width: 12px;
+    height: 12px;
+    stroke-width: 1.2;
+}
+
+.brand {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    margin-right: clamp(20px, 3.2vw, 48px);
+}
+
+.brand img {
+    display: block;
+    width: 64px;
+    height: auto;
+}
+
+.catalog-button {
+    display: flex;
+    flex: 0 0 auto;
+    height: 23px;
+    align-items: center;
+    gap: 5px;
+    padding: 0 10px 0 5px;
+    border-radius: 14px;
+    background: #98be2a;
+    color: #10152d;
+    font-size: 9px;
+}
+
+.catalog-icon {
+    display: grid;
+    width: 18px;
+    height: 19px;
+    place-items: center;
+    border-radius: 3px;
+    background: #98be2a;
+}
+
+.catalog-icon svg {
+    width: 15px;
+    height: 15px;
+    fill: #0b1245;
+}
+
+.search {
+    display: flex;
+    min-width: 120px;
+    height: 22px;
+    flex: 1 1 auto;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #fff;
+}
+
+.search-icon {
+    width: 13px;
+    height: 13px;
+    flex: 0 0 auto;
+    margin-left: 11px;
+    fill: none;
+    stroke: #929292;
+    stroke-linecap: round;
+    stroke-width: 1.5;
+}
+
+.search-placeholder {
+    width: 100%;
+    min-width: 0;
+    padding: 0 7px;
+    color: #aaa;
+    font-size: 9px;
+    white-space: nowrap;
+}
+
+.voice-button {
+    display: grid;
+    width: 22px;
+    height: 100%;
+    flex: 0 0 auto;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    border-left: 1px solid #e8e8e8;
+    background: #fff;
+}
+
+.voice-button svg {
+    width: 10px;
+    height: 13px;
+    fill: none;
+    stroke: #333;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.4;
+}
+
+.search-submit {
+    height: 22px;
+    flex: 0 0 auto;
+    padding: 0 11px;
+    border: 0;
+    border-radius: 0 14px 14px 0;
+    background: #98be2a;
+    color: #151a2e;
+    font-size: 9px;
+}
+
+.premium-button {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font-size: 6px;
+    line-height: 1.05;
+}
+
+.premium-button strong {
+    padding: 2px 6px;
+    border-radius: 7px;
+    background: #ffec00;
+    color: #17172a;
+    font-size: 6px;
+    font-weight: 600;
+}
+
+.account-button {
+    margin-left: auto;
+}
+
+.cart-button {
+    margin-left: -23px;
+}
+
+.cart-button svg {
+    width: 17px;
+    height: 17px;
+}
+
+.cart-count {
+    position: absolute;
+    top: -4px;
+    right: -5px;
+    display: grid;
+    width: 10px;
+    height: 10px;
+    place-items: center;
+    border-radius: 50%;
+    background: #98be2a;
+    color: #0b1245;
+    font-size: 7px;
+    line-height: 1;
+}
+
+
+
