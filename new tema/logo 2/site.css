@@ -869,118 +869,145 @@ body {
     flex: 0 0 auto;
 }
 
-@media (max-width: 900px) {
-    .trending-section {
-        margin-top: 22px;
-    }
 
-    .gift-section {
-        margin-top: 19px;
-    }
-
-    .trending-section > h2,
-    .gift-section > h2 {
-        margin-bottom: 3px;
-    }
-
-    .discounts-grid {
-        gap: 4px;
-    }
-
-    .show-more {
-        min-height: 20px;
-    }
-
-    .product-details {
-        padding: 4px 6px 6px;
-    }
-
-    .product-details h3 {
-        font-size: 7px;
-    }
-
-    .old-price {
-        font-size: 6px;
-    }
-
-    .sale-price {
-        font-size: 9px;
-    }
-
-    .product-card-featured .product-details {
-        padding: 7px 10px 10px;
-    }
-
-    .product-card-featured .product-details h3 {
-        font-size: 9px;
-        margin-bottom: 6px;
-    }
-
-    .product-card-featured .old-price {
-        font-size: 7px;
-        margin-bottom: 3px;
-    }
-
-    .product-card-featured .sale-price {
-        font-size: 15px;
-    }
+/* Базовые стили (десктоп) */
+.gift-banner,
+.about-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-@media (max-width: 700px) {
-    .discounts-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        grid-template-rows: auto;
+@media (max-width: 768px) {
+    .header-nav {
+        height: auto;
+        flex-wrap: wrap;
+        gap: 8px 10px;
+        padding: 8px 12px;
     }
 
-    .product-card-featured {
-        grid-row: span 2;
+    .brand {
+        margin-right: auto;
     }
 
-    .show-more {
-        grid-column: auto;
+    .brand img {
+        width: 54px;
     }
 
-    .trending-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 600px) {
-    .discounts-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-template-rows: auto;
+    .premium-button {
+        display: none;
     }
 
-    .product-card-featured {
-        grid-row: span 1;
+    .account-button,
+    .cart-button {
+        margin-left: 0;
     }
 
-    .product-card-featured .product-art {
-        min-height: 145px;
-    }
-
-    .product-card-featured .product-details {
-        padding: 8px 12px 12px;
-    }
-
-    .product-card-featured .product-details h3 {
+    .catalog-button {
+        order: 4;
+        height: 28px;
         font-size: 11px;
     }
 
-    .product-card-featured .sale-price {
-        font-size: 16px;
+    .search {
+        order: 5;
+        flex: 1 1 60%;
+        height: 28px;
     }
 
-    .show-more {
-        grid-column: auto;
+    .main {
+        grid-template-columns: 1fr;
+        padding: 0 12px;
+        gap: 14px;
     }
 
-    .trending-grid,
+    .catalog {
+        flex-direction: row;
+        height: auto;
+        overflow-x: auto;
+        justify-content: flex-start;
+        gap: 8px;
+        padding: 8px;
+        background: #fff;
+    }
+
+    .catalog a {
+        flex: 0 0 auto;
+        padding: 6px 10px;
+        border: 1px solid #eee;
+        border-radius: 6px;
+        background: #f9f9f9;
+    }
+
+    .catalog a svg {
+        width: 18px;
+        height: 18px;
+        flex: 0 0 18px;
+    }
+
+    .catalog a p {
+        font-size: 11px;
+        white-space: nowrap;
+    }
+
+    .discounts-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        gap: 8px;
+    }
+
+    .product-card-featured {
+        grid-column: span 2;
+        grid-row: auto;
+    }
+
+    .trending-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .trending-card {
+        height: auto;
+        min-height: 160px;
+    }
+
+    .trending-card p {
+        font-size: 11px;
+    }
+
+    .trending-card .sale-price {
+        font-size: 13px;
+    }
+
     .gift-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: 1fr;
     }
 
     .gift-banner {
-        min-height: 100px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .gift-copy {
+        align-items: center;
+    }
+
+    .gift-art {
+        width: 60%;
+        max-height: 140px;
+    }
+
+    .about-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .about-card p {
+        font-size: 11px;
     }
 }
