@@ -72,7 +72,7 @@
     </header>
 
 
-<main> <section class="left-section">
+<main class="main"> <section class="left-section">
 <aside class="catalog montserrat-regular">
         <a href="#">
             <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -375,10 +375,64 @@
 </svg>
 
             <p>Тотальний розпродаж</p>
-        </a><a href="#">
- 
-     
-    </aside> <aside>тут буде инщий ливий блок</aside></section>
+        </a>
+    </aside>
+    <aside class="left-info" aria-label="Довідкова інформація">
+        <h2 class="aside-title">Довідковий центр</h2>
+        <section class="help-card">
+            <h3>Ласкаво просимо!</h3>
+            <p class="help-text">У цьому розділі ви знайдете відповіді на всі запитання.</p>
+            <a class="support-button" href="#">Дізнатись більше</a>
+        </section>
+
+        <section class="sidebar-app">
+            <p>Встановіть наш додаток</p>
+            <div class="stores">
+                <a href="#" aria-label="Google Play">▶<span>Google Play</span></a>
+                <a href="#" aria-label="App Store">●<span>App Store</span></a>
+            </div>
+        </section>
+
+        <section class="about-card">
+            <p>Ми в соцмережах</p>
+            <div class="social-links" aria-label="Соціальні мережі">
+                <a href="#" aria-label="Facebook">f</a>
+                <a href="#" aria-label="YouTube">▶</a>
+                <a href="#" aria-label="Instagram">◎</a>
+                <a href="#" aria-label="TikTok">♪</a>
+            </div>
+        </section>
+
+        <section class="footer-card">
+            <h3>Допомога</h3>
+            <a href="#">Доставка і оплата</a>
+            <a href="#">Кредит</a>
+            <a href="#">Гарантія</a>
+            <a href="#">Повернення товару</a>
+            <a href="#">Обмін товару</a>
+            <a href="#">Сервісні центри</a>
+            <a href="#">Питання та відповіді</a>
+
+            <h3>Інформація про компанію</h3>
+            <a href="#">Про нас</a>
+            <a href="#">Вакансії</a>
+            <a href="#">Новини</a>
+            <a href="#">Контакти</a>
+
+            <h3>Сервіси та партнерам</h3>
+            <a href="#">Бонусна програма</a>
+            <a href="#">Подарункові сертифікати</a>
+            <a href="#">Постачальникам</a>
+            <a href="#">Співпраця з нами</a>
+
+            <h3>Способи оплати</h3>
+            <div class="payments">
+                <span>VISA</span>
+                <span>MasterCard</span>
+            </div>
+        </section>
+    </aside>
+</section>
 <section class="right-section">
 <div class="carousel">
    <span> <svg width="9" height="34" viewBox="0 0 9 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -393,15 +447,203 @@
 </span>
 </div>
 
-<div class="discounts">
-  <title>акцийни пропозиции</title>
-  <div class="discounts-countent">
-   <div class="col-1"></div>
-   <div class="col-2"></div>
-   <div class="col-3"></div>
-   <div class="col-4"></div>
-  </div>
-</div>
+<section class="discounts" aria-labelledby="discounts-title">
+    <div class="discounts-header">
+        <h2 id="discounts-title">Акційні пропозиції</h2>
+        <a class="all-discounts" href="#">Всі акції <span>1036</span></a>
+    </div>
+
+    <div class="discounts-grid">
+        <article class="product-card product-card-featured product-card-svg-frame">
+            <button class="favorite-button" type="button" aria-label="Додати ноутбук до обраного">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.8a5.4 5.4 0 0 0-7.6 0L12 6l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6l1.2 1.2L12 21l7.6-7.4 1.2-1.2a5.4 5.4 0 0 0 0-7.6Z"/></svg>
+            </button>
+            <div class="product-art" role="img" aria-label="Ілюстрація ноутбука">
+                <img src="laptop.svg" alt="">
+            </div>
+            <div class="product-details">
+                <h3>Ноутбук ASUS VivoBook S14 S435EA-HM020 (90NB0SU1-M00330) Deep Green</h3>
+                <p class="old-price">33 999 ₴</p>
+                <p class="sale-price">30 999 ₴</p>
+            </div>
+        </article>
+
+        <article class="product-card product-card-svg-frame product-card-fridge">
+            <button class="favorite-button" type="button" aria-label="Додати холодильник до обраного">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.8a5.4 5.4 0 0 0-7.6 0L12 6l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6l1.2 1.2L12 21l7.6-7.4 1.2-1.2a5.4 5.4 0 0 0 0-7.6Z"/></svg>
+            </button>
+            <div class="product-art" role="img" aria-label="Ілюстрація холодильника">
+                <svg viewBox="0 0 100 120" aria-hidden="true">
+                    <defs><linearGradient id="fridge" x1="0" x2="1"><stop stop-color="#b9bbc0"/><stop offset=".48" stop-color="#f0f0f1"/><stop offset="1" stop-color="#aaaeb3"/></linearGradient></defs>
+                    <rect x="31" y="8" width="38" height="100" rx="3" fill="url(#fridge)"/>
+                    <path d="M31 69h38" stroke="#777b80" stroke-width="2"/>
+                    <path d="M63 77v14" stroke="#71767b" stroke-width="2"/>
+                    <path d="M36 13h28" stroke="#fff" opacity=".7"/>
+                </svg>
+            </div>
+            <div class="product-details">
+                <h3>Холодильник SAMSUNG RB29FSRNDSA/UA</h3>
+                <p class="old-price">14 999 ₴</p>
+                <p class="sale-price">12 999 ₴</p>
+            </div>
+        </article>
+
+        <article class="product-card">
+            <button class="favorite-button" type="button" aria-label="Додати консоль до обраного">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.8a5.4 5.4 0 0 0-7.6 0L12 6l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6l1.2 1.2L12 21l7.6-7.4 1.2-1.2a5.4 5.4 0 0 0 0-7.6Z"/></svg>
+            </button>
+            <div class="product-art" role="img" aria-label="Ілюстрація ігрової консолі та контролера">
+                <img src="xbox.svg" alt="">
+            </div>
+            <div class="product-details">
+                <h3>Ігрова консоль Microsoft Xbox Series X TB (RRT-00010)</h3>
+                <p class="old-price">23 299 ₴</p>
+                <p class="sale-price">22 195 ₴</p>
+            </div>
+        </article>
+
+        <article class="product-card">
+            <button class="favorite-button" type="button" aria-label="Додати віскі до обраного">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.8a5.4 5.4 0 0 0-7.6 0L12 6l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6l1.2 1.2L12 21l7.6-7.4 1.2-1.2a5.4 5.4 0 0 0 0-7.6Z"/></svg>
+            </button>
+            <div class="product-art" role="img" aria-label="Ілюстрація пляшки віскі та коробки">
+                <img src="whisky.svg" alt="">
+            </div>
+            <div class="product-details">
+                <h3>Віскі Chivas Regal 1 л, 12 років витримки 40% в подарунковій упаковці</h3>
+                <p class="old-price">1 679 ₴</p>
+                <p class="sale-price">1 049 ₴</p>
+            </div>
+        </article>
+
+        <article class="product-card">
+            <button class="favorite-button" type="button" aria-label="Додати годинник до обраного">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.8a5.4 5.4 0 0 0-7.6 0L12 6l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6l1.2 1.2L12 21l7.6-7.4 1.2-1.2a5.4 5.4 0 0 0 0-7.6Z"/></svg>
+            </button>
+            <div class="product-art" role="img" aria-label="Ілюстрація розумного годинника">
+                <img src="watch.svg" alt="">
+            </div>
+            <div class="product-details">
+                <h3>Смарт-годинник Apple Watch Series 7 Nike GPS 45 mm Midnight Aluminum Case</h3>
+                <p class="old-price">22 940 ₴</p>
+                <p class="sale-price">22 195 ₴</p>
+            </div>
+        </article>
+
+        <article class="product-card">
+            <button class="favorite-button" type="button" aria-label="Додати самокат до обраного">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.8a5.4 5.4 0 0 0-7.6 0L12 6l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6l1.2 1.2L12 21l7.6-7.4 1.2-1.2a5.4 5.4 0 0 0 0-7.6Z"/></svg>
+            </button>
+            <div class="product-art" role="img" aria-label="Ілюстрація електросамоката">
+                <img src="scooter.svg" alt="">
+            </div>
+            <div class="product-details">
+                <h3>Електросамокат Xiaomi Mi Electric Scooter 1S Black (FBC4022GL/DB)</h3>
+                <p class="old-price">17 999 ₴</p>
+                <p class="sale-price">11 999 ₴</p>
+            </div>
+        </article>
+
+        <div class="phone-column">
+            <article class="product-card">
+                <button class="favorite-button" type="button" aria-label="Додати телефон до обраного">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.8a5.4 5.4 0 0 0-7.6 0L12 6l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6l1.2 1.2L12 21l7.6-7.4 1.2-1.2a5.4 5.4 0 0 0 0-7.6Z"/></svg>
+                </button>
+                <div class="product-art" role="img" aria-label="Ілюстрація смартфона">
+                    <img src="iphone.svg" alt="">
+                </div>
+                <div class="product-details">
+                    <h3>Мобільний телефон Apple iPhone 12 mini 128 GB White</h3>
+                    <p class="old-price">23 999 ₴</p>
+                    <p class="sale-price">21 999 ₴</p>
+                </div>
+            </article>
+            <a class="show-more" href="#">Показати ще</a>
+        </div>
+    </div>
+</section>
+
+<section class="trending-section" aria-labelledby="trending-title">
+    <h2 id="trending-title">Зараз шукають</h2>
+    <div class="trending-grid">
+        <article class="trending-card">
+            <div class="trend-art" role="img" aria-label="Смартфон у синьому кольорі">
+                <img src="phone-blue.svg" alt="">
+            </div>
+            <p>Мобільний телефон Apple iPhone 15 Pro Max</p>
+            <span class="sale-price">46 499 ₴</span>
+        </article>
+        <article class="trending-card">
+            <div class="trend-art" role="img" aria-label="Ігрова консоль PlayStation">
+                <img src="playstation.svg" alt="">
+            </div>
+            <p>Ігрова приставка PS5 PlayStation 5 Digital Edition</p>
+            <span class="sale-price">17 899 ₴</span>
+        </article>
+        <article class="trending-card">
+            <div class="trend-art" role="img" aria-label="Кавомашина">
+                <img src="coffee-machine.svg" alt="">
+            </div>
+            <p>Кавомашина PHILIPS Series 2200 EP2220/10</p>
+            <span class="sale-price">17 499 ₴</span>
+        </article>
+        <article class="trending-card">
+            <div class="trend-art" role="img" aria-label="Фен-стайлер">
+                <img src="hair-styler.svg" alt="">
+            </div>
+            <p>Фен Dyson Supersonic HD03 (Fuchsia)</p>
+            <span class="sale-price">16 490 ₴</span>
+        </article>
+        <article class="trending-card">
+            <div class="trend-art" role="img" aria-label="Планшет із темним екраном">
+                <svg viewBox="0 0 120 90" aria-hidden="true">
+                    <defs><linearGradient id="tabletGlow" x1="0" x2="1" y2="1"><stop stop-color="#120c21"/><stop offset=".45" stop-color="#ef6b25"/><stop offset=".7" stop-color="#160f2f"/><stop offset="1" stop-color="#d89c38"/></linearGradient></defs>
+                    <rect x="15" y="10" width="90" height="67" rx="4" fill="#202127"/>
+                    <rect x="19" y="14" width="82" height="59" rx="2" fill="url(#tabletGlow)"/>
+                    <path d="M22 64c22-26 34-1 56-34 6-8 12-10 20-11M23 70c24-22 34 1 59-30" fill="none" stroke="#f59a48" stroke-width="2" opacity=".8"/>
+                </svg>
+            </div>
+            <p>Планшет Samsung Galaxy Tab S9 Ultra 12/256GB</p>
+            <span class="sale-price">43 999 ₴</span>
+        </article>
+    </div>
+</section>
+
+<section class="gift-section" aria-labelledby="gift-title">
+    <h2 id="gift-title">Кращі подарунки</h2>
+    <div class="gift-grid">
+        <article class="gift-banner gift-for-her">
+            <div class="gift-copy">
+                <p>Добірка подарунків у розділі</p>
+                <p>Товари для краси, здоров'я і догляду за тілом</p>
+                <h3>Для неї</h3>
+                <a href="#">Перейти</a>
+            </div>
+            <svg class="gift-art" viewBox="0 0 150 120" role="img" aria-label="Подарунок із сердечком">
+                <path d="M72 51c-15-9-28-28-19-33 10-6 22 17 24 31 1-15 18-34 27-27 9 7-11 24-27 31" fill="none" stroke="#f7c7d7" stroke-width="4"/>
+                <path d="M48 53h55v47H48z" fill="#79a8ed"/>
+                <path d="M43 48h65v12H43z" fill="#a8c7fb"/>
+                <path d="M70 48h12v52H70z" fill="#e6b7d1"/>
+                <path d="M59 75c0-8 10-11 17-3 7-8 17-5 17 3 0 9-17 19-17 19S59 84 59 75Z" fill="#f7d8e6"/>
+            </svg>
+        </article>
+        <article class="gift-banner gift-for-him">
+            <div class="gift-copy">
+                <p>Добірка подарунків у розділі</p>
+                <p>Побутова техніка</p>
+                <h3>Для нього</h3>
+                <a href="#">Перейти</a>
+            </div>
+            <svg class="gift-art" viewBox="0 0 150 120" role="img" aria-label="Подарунок із сердечком">
+                <path d="M72 51c-15-9-28-28-19-33 10-6 22 17 24 31 1-15 18-34 27-27 9 7-11 24-27 31" fill="none" stroke="#bce3f2" stroke-width="4"/>
+                <path d="M48 53h55v47H48z" fill="#ef5365"/>
+                <path d="M43 48h65v12H43z" fill="#f493a0"/>
+                <path d="M70 48h12v52H70z" fill="#ffd7df"/>
+                <path d="M59 75c0-8 10-11 17-3 7-8 17-5 17 3 0 9-17 19-17 19S59 84 59 75Z" fill="#d9f1fb"/>
+            </svg>
+        </article>
+    </div>
+</section>
 
 </section>
 </main>
