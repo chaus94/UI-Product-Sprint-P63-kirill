@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baza-R — Головна</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      color: #111827;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* --- Top Promo Strip --- */
+    .top-sale-bar {
+      background-color: #7cc242;
+      color: #0b1245;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 12px;
+      letter-spacing: 0.4px;
+    }
+
+    /* --- Header --- */
+    .site-header {
+      background-color: #0b1245;
+      color: #ffffff;
+      padding: 10px 16px;
+      position: sticky;
+      top: 0;
+      z-index: 500;
+    }
+
+    .header-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .burger-btn {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-size: 22px;
+      cursor: pointer;
+      padding: 4px 8px;
+      line-height: 1;
+    }
+
+    .logo-link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .logo-link img {
+      height: 26px;
+      width: auto;
+    }
+
+    .catalog-header-btn {
+      background-color: #7cc242;
+      color: #0b1245;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .search-form {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      background-color: #ffffff;
+      border-radius: 6px;
+      padding: 2px 4px 2px 12px;
+    }
+
+    .search-form input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 13px;
+      color: #111827;
+      padding: 6px 8px;
+    }
+
+    .search-submit {
+      background-color: #7cc242;
+      color: #0b1245;
+      border: none;
+      border-radius: 5px;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 7px 14px;
+      cursor: pointer;
+    }
+
+    .support-badge {
+      font-size: 10px;
+      line-height: 1.2;
+      text-align: center;
+      background-color: #facc15;
+      color: #111827;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .header-icons {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 18px;
+    }
+
+    .cart-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -6px;
+      right: -8px;
+      background-color: #7cc242;
+      color: #0b1245;
+      font-size: 10px;
+      font-weight: 700;
+      min-width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 4px;
+    }
+
+    /* --- Mobile Drawer --- */
+    .drawer-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.45);
+      z-index: 999;
+    }
+
+    .drawer-overlay.is-open {
+      display: block;
+    }
+
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      max-width: 350px;
+      height: 100vh;
+      overflow-y: auto;
+      background-color: #f3f4f6;
+      z-index: 1000;
+      transform: translateX(-100%);
+      transition: transform 0.25s ease;
+    }
+
+    .mobile-drawer.is-open {
+      transform: translateX(0);
+    }
+
+    .black-blue {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px;
+      background-color: #0b1245;
+      color: #ffffff;
+    }
+
+    .black-blue a {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .auth-subtext {
+      font-size: 12px;
+      color: #cbd5e1;
+      margin-top: 4px;
+    }
+
+    .close-btn {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .gelb {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background-color: goldenrod;
+      color: #111827;
+      font-weight: 700;
+    }
+
+    .menu-card,
+    .place,
+    .info,
+    .help {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 12px;
+      padding: 14px 16px;
+      background-color: #ffffff;
+      border-radius: 10px;
+    }
+
+    .place {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* --- Main Layout --- */
+    .layout-wrapper {
+      max-width: 1360px;
+      margin: 16px auto 40px;
+      padding: 0 16px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* --- Left Sidebar --- */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      font-size: 12px;
+      color: #4b5563;
+    }
+
+    .sidebar-nav {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .sidebar-nav a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 3px 4px;
+      border-radius: 4px;
+    }
+
+    .sidebar-nav a:hover {
+      background-color: #f3f4f6;
+      color: #0b1245;
+    }
+
+    .sidebar-nav img {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+    }
+
+    .sidebar-help-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding-top: 6px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .sidebar-auth-box {
+      background-color: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .sidebar-auth-box h3 {
+      font-size: 14px;
+      color: #111827;
+      margin-bottom: 6px;
+    }
+
+    .sidebar-auth-box p {
+      font-size: 11px;
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+
+    .sidebar-auth-btn {
+      display: block;
+      text-align: center;
+      background-color: #7cc242;
+      color: #0b1245;
+      font-weight: 700;
+      font-size: 11px;
+      padding: 8px;
+      border-radius: 6px;
+    }
+
+    .sidebar-block h4 {
+      font-size: 12px;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+
+    .store-badges {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .store-badge {
+      background-color: #111827;
+      color: #ffffff;
+      font-size: 10px;
+      padding: 6px 8px;
+      border-radius: 5px;
+      font-weight: 600;
+    }
+
+    .social-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .social-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background-color: #e5e7eb;
+      color: #111827;
+      font-size: 11px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sidebar-links-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      font-size: 11px;
+    }
+
+    .sidebar-links-group strong {
+      color: #111827;
+      margin-bottom: 2px;
+    }
+
+    .sidebar-links-group a:hover {
+      text-decoration: underline;
+    }
+
+    /* --- Right Content Column --- */
+    .main-column {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      min-width: 0;
+    }
+
+    .hero-banner {
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      background: linear-gradient(90deg, #102419 0%, #244a35 55%, #0f172a 100%);
+      color: #ffffff;
+      min-height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 48px;
+    }
+
+    .hero-content h1 {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .hero-price {
+      font-size: 24px;
+      font-weight: 700;
+      color: #a3e635;
+    }
+
+    .hero-banner img {
+      max-height: 210px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.8);
+      color: #111827;
+      border: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .slider-arrow.prev { left: 10px; }
+    .slider-arrow.next { right: 10px; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .show-all-btn {
+      font-size: 11px;
+      color: #4b5563;
+      border: 1px solid #d1d5db;
+      background-color: #ffffff;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    /* --- Featured Grid (1 big left + smaller cards right) --- */
+    .featured-layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 12px;
+    }
+
+    .small-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .products-row-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .products-row-5 {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .product-card {
+      position: relative;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      padding: 12px;
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .wishlist-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: transparent;
+      border: none;
+      font-size: 15px;
+      color: #9ca3af;
+      cursor: pointer;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: contain;
+      margin: 4px auto;
+    }
+
+    .product-card.is-featured img {
+      height: 190px;
+    }
+
+    .product-title {
+      font-size: 12px;
+      line-height: 1.35;
+      color: #1f2937;
+    }
+
+    .old-price {
+      font-size: 11px;
+      color: #9ca3af;
+      text-decoration: line-through;
+    }
+
+    .current-price {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ef4444;
+    }
+
+    .current-price.neutral {
+      color: #111827;
+    }
+
+    .card-footer-note {
+      font-size: 10px;
+      color: #16a34a;
+    }
+
+    /* --- Gifts Banner Row --- */
+    .gifts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .gift-card {
+      border-radius: 8px;
+      padding: 20px;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 155px;
+    }
+
+    .gift-card.for-her {
+      background: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    .gift-card.for-him {
+      background: linear-gradient(120deg, #4facfe 0%, #00f2fe 100%);
+    }
+
+    .gift-card h3 {
+      font-size: 22px;
+      margin: 6px 0 10px;
+    }
+
+    .gift-card p {
+      font-size: 11px;
+      max-width: 220px;
+    }
+
+    .gift-btn {
+      display: inline-block;
+      background-color: #ffffff;
+      color: #111827;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 999px;
+    }
+
+    .gift-icon {
+      font-size: 48px;
+    }
+
+    .center-action-wrap {
+      display: flex;
+      justify-content: center;
+      margin-top: 14px;
+    }
+
+    @media (max-width: 1024px) {
+      .layout-wrapper {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        display: none;
+      }
+      .featured-layout {
+        grid-template-columns: 1fr;
+      }
+      .small-cards-grid,
+      .products-row-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .products-row-5 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .catalog-header-btn,
+      .support-badge {
+        display: none;
+      }
+      .gifts-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-sale-bar">ТОТАЛЬНИЙ РОЗПРОДАЖ ДО -50%</div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <button type="button" class="burger-btn" id="openDrawer" aria-label="Відкрити меню">☰</button>
+      <a href="index.html" class="logo-link">
+        <img src="logo.png" alt="BAZA-R">
+        <span>BAZA-R</span>
+      </a>
+      <a href="catalog.html" class="catalog-header-btn">⊞ Каталог</a>
+      <form class="search-form" action="catalog.html" method="get">
+        <input type="search" name="q" placeholder="Я шукаю...">
+        <button type="submit" class="search-submit">Знайти</button>
+      </form>
+      <div class="support-badge">Служба<br>турботи</div>
+      <div class="header-icons">
+        <a href="login.html" title="Особистий кабінет">👤</a>
+        <a href="paying.html" class="cart-link" title="Кошик">
+          🛒
+          <span class="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Мобільне меню">
+    <div class="black-blue">
+      <div>
+        <a href="login.html">Вхід / Реєстрація</a>
+        <p class="auth-subtext">Авторизуйтесь для отримання розширених можливостей</p>
+      </div>
+      <button type="button" class="close-btn" id="closeDrawer" aria-label="Закрити меню">×</button>
+    </div>
+
+    <div class="gelb">
+      <div>
+        <div>PREMIUM</div>
+      </div>
+      <span>→</span>
+    </div>
+
+    <div class="menu-card">
+      <a href="catalog.html">Каталог товарів</a>
+      <a href="paying.html">Кошик</a>
+      <a href="center.html">Довідковий центр</a>
+      <a href="tel:+380442221100">+38 044 222 11 00</a>
+    </div>
+
+    <div class="place">
+      <span>Місто</span>
+      <a href="place.html">Одеса ⌄</a>
+    </div>
+
+    <div class="info">
+      <h3>Інформація про компанію</h3>
+      <a href="info.html">Про нас</a>
+      <a href="info.html#terms">Умови використання сайту</a>
+      <a href="info.html#careers">Вакансії</a>
+      <a href="info.html#contacts">Контакти</a>
+    </div>
+
+    <div class="help">
+      <h3>Допомога</h3>
+      <a href="help.html">Доставка та оплата</a>
+      <a href="help.html#credit">Кредит</a>
+      <a href="help.html#warranty">Гарантія</a>
+      <a href="help.html#return">Повернення товару</a>
+      <a href="help.html#service">Сервісні центри</a>
+    </div>
+  </aside>
+
+  <div class="layout-wrapper">
+    <aside class="sidebar" aria-label="Бічне меню категорій">
+      <ul class="sidebar-nav">
+        <li><a href="catalog.html?cat=laptops"><img src="laptop.svg" alt="">Ноутбуки та комп'ютери</a></li>
+        <li><a href="catalog.html?cat=phones"><img src="iphone.svg" alt="">Смартфони, ТВ і електроніка</a></li>
+        <li><a href="catalog.html?cat=appliances"><img src="coffee-machine.svg" alt="">Товари для геймерів</a></li>
+        <li><a href="catalog.html?cat=household"><img src="hair-styler.svg" alt="">Побутова техніка</a></li>
+        <li><a href="catalog.html?cat=scooters"><img src="scooter.svg" alt="">Товари для дому</a></li>
+        <li><a href="catalog.html?cat=tools"><img src="watch.svg" alt="">Інструменти та автотовари</a></li>
+        <li><a href="catalog.html?cat=garden"><img src="imgd3.png" alt="">Сантехніка та ремонт</a></li>
+        <li><a href="catalog.html?cat=sport"><img src="playstation.svg" alt="">Дача, сад і город</a></li>
+        <li><a href="catalog.html?cat=clothes"><img src="xbox.svg" alt="">Спорт і захоплення</a></li>
+        <li><a href="catalog.html?cat=shoes"><img src="whisky.svg" alt="">Одяг, взуття та прикраси</a></li>
+      </ul>
+
+      <a href="center.html" class="sidebar-help-link">？ Довідковий центр</a>
+
+      <div class="sidebar-auth-box">
+        <h3>Ласкаво просимо!</h3>
+        <p>Увійдіть, щоб отримувати рекомендації, персональні бонуси та знижки.</p>
+        <a href="login.html" class="sidebar-auth-btn">Увійдіть до особистого кабінету</a>
+      </div>
+
+      <div class="sidebar-block">
+        <h4>Встановлюйте наші додатки</h4>
+        <div class="store-badges">
+          <a href="#" class="store-badge">Google Play</a>
+          <a href="#" class="store-badge">App Store</a>
+        </div>
+      </div>
+
+      <div class="sidebar-block">
+        <h4>Ми в соціальних мережах</h4>
+        <div class="social-row">
+          <a href="#" class="social-dot">f</a>
+          <a href="#" class="social-dot">𝕏</a>
+          <a href="#" class="social-dot">▶</a>
+          <a href="#" class="social-dot">◎</a>
+          <a href="#" class="social-dot">✈</a>
+        </div>
+      </div>
+
+      <div class="sidebar-links-group">
+        <strong>Допомога</strong>
+        <a href="help.html">Доставка та оплата</a>
+        <a href="help.html#credit">Кредит</a>
+        <a href="help.html#warranty">Гарантія</a>
+        <a href="help.html#return">Повернення товару</a>
+        <a href="help.html#service">Сервісні центри</a>
+      </div>
+
+      <div class="sidebar-links-group">
+        <strong>Інформація про компанію</strong>
+        <a href="info.html">Про нас</a>
+        <a href="info.html#terms">Умови використання сайту</a>
+        <a href="info.html#careers">Вакансії</a>
+        <a href="info.html#contacts">Контакти</a>
+      </div>
+
+      <div class="sidebar-links-group">
+        <strong>Сервіси</strong>
+        <a href="#">Бонусний рахунок</a>
+        <a href="#">Premium</a>
+        <a href="#">Подарункові сертифікати</a>
+        <a href="#">Обмін</a>
+      </div>
+
+      <div class="sidebar-links-group">
+        <strong>Партнерам</strong>
+        <a href="#">Продавати на Baza-R</a>
+        <a href="#">Співпраця з нами</a>
+      </div>
+    </aside>
+
+    <main class="main-column">
+      <section class="hero-banner" aria-label="Головний банер">
+        <button type="button" class="slider-arrow prev" aria-label="Попередній">‹</button>
+        <div class="hero-content">
+          <h1>Galaxy S22 Ultra</h1>
+          <div class="hero-price">від 43 999₴</div>
+        </div>
+        <img src="iphone.svg" alt="Galaxy S22 Ultra">
+        <button type="button" class="slider-arrow next" aria-label="Наступний">›</button>
+      </section>
+
+      <section aria-labelledby="promo-heading">
+        <div class="section-header">
+          <h2 class="section-title" id="promo-heading">Акційні пропозиції</h2>
+          <button type="button" class="show-all-btn">Всі акції →</button>
+        </div>
+
+        <div class="featured-layout">
+          <article class="product-card is-featured">
+            <button type="button" class="wishlist-btn" aria-label="В обране">♡</button>
+            <img src="laptop.svg" alt="Ноутбук ASUS Vivobook 16X">
+            <div>
+              <h3 class="product-title">Ноутбук ASUS Vivobook 16X S5402ZA-MM020 (90NB0SU1-M00330) Deep Green</h3>
+              <div class="old-price">35 999 ₴</div>
+              <div class="current-price">30 999 ₴</div>
+            </div>
+          </article>
+
+          <div class="small-cards-grid">
+            <article class="product-card">
+              <button type="button" class="wishlist-btn" aria-label="В обране">♡</button>
+              <img src="coffee-machine.svg" alt="Холодильник SAMSUNG">
+              <div>
+                <h3 class="product-title">Холодильник SAMSUNG RB38A600ESA/UA</h3>
+                <div class="old-price">21 999 ₴</div>
+                <div class="current-price">18 999 ₴</div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <button type="button" class="wishlist-btn" aria-label="В обране">♡</button>
+              <img src="xbox.svg" alt="Ігрова консоль Microsoft Xbox Series X">
+              <div>
+                <h3 class="product-title">Ігрова консоль Microsoft Xbox Series X 1TB (RRT-00010)</h3>
+                <div class="old-price">24 999 ₴</div>
+                <div class="current-price">22 199 ₴</div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <button type="button" class="wishlist-btn" aria-label="В обране">♡</button>
+              <img src="whisky.svg" alt="Віскі Chivas Regal 12">
+              <div>
+                <h3 class="product-title">Віскі Chivas Regal 12 років 0.7 л в подарунковій упаковці</h3>
+                <div class="old-price">1 299 ₴</div>
+                <div class="current-price">1 029 ₴</div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <button type="button" class="wishlist-btn" aria-label="В обране">♡</button>
+              <img src="watch.svg" alt="Смарт-годинник Apple Watch">
+              <div>
+                <h3 class="product-title">Смарт-годинник Apple Watch Series 7 GPS 45 mm Midnight</h3>
+                <div class="old-price">16 799 ₴</div>
+                <div class="current-price">15 199 ₴</div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <button type="button" class="wishlist-btn" aria-label="В обране">♡</button>
+              <img src="scooter.svg" alt="Електросамокат Xiaomi">
+              <div>
+                <h3 class="product-title">Електросамокат Xiaomi Mi Electric Scooter 3 Black</h3>
+                <div class="old-price">19 499 ₴</div>
+                <div class="current-price">16 899 ₴</div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <button type="button" class="wishlist-btn" aria-label="В обране">♡</button>
+              <img src="iphone.svg" alt="Мобільний телефон Apple iPhone 12">
+              <div>
+                <h3 class="product-title">Мобільний телефон Apple iPhone 12 mini 128 GB White</h3>
+                <div class="old-price">26 999 ₴</div>
+                <div class="current-price">23 999 ₴</div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="center-action-wrap">
+          <button type="button" class="show-all-btn">Показати ще</button>
+        </div>
+      </section>
+
+      <section aria-labelledby="trending-heading">
+        <div class="section-header">
+          <h2 class="section-title" id="trending-heading">Зараз шукають</h2>
+        </div>
+        <div class="products-row-4">
+          <article class="product-card">
+            <button type="button" class="wishlist-btn" aria-label="В обране">♡</button>
+            <img src="iphone.svg" alt="Apple iPhone 13 Pro Max">
+            <div>
+              <h3 class="product-title">Мобільний телефон Apple iPhone 13 Pro Max 128 GB Sierra Blue</h3>
+              <div class="old-price">47 999 ₴</div>
+              <div class="current-price">45 299 ₴</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <button type="button" class="wishlist-btn" aria-label="В обране">♡</button>
+            <img src="playstation.svg" alt="PlayStation 5">
+            <div>
+              <h3 class="product-title">Ігрова приставка Sony PlayStation 5 Digital Edition</h3>
+              <div class="current-price neutral">17 899 ₴</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <button type="button" class="wishlist-btn" aria-label="В обране">♡</button>
+            <img src="coffee-machine.svg" alt="Кавомашина DeLonghi">
+            <div>
+              <h3 class="product-title">Кавомашина DeLonghi ECAM 221.10 B</h3>
+              <div class="old-price">19 999 ₴</div>
+              <div class="current-price">17 499 ₴</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <button type="button" class="wishlist-btn" aria-label="В обране">♡</button>
+            <img src="hair-styler.svg" alt="Фен Dyson Supersonic">
+            <div>
+              <h3 class="product-title">Фен Dyson Supersonic HD07 (Fuchsia/Nickel)</h3>
+              <div class="current-price neutral">16 499 ₴</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section aria-label="Кращі подарунки">
+        <div class="gifts-grid">
+          <div class="gift-card for-her">
+            <div>
+              <p>Добірка подарунків у розділі<br>Товари для краси, здоров'я і догляду</p>
+              <h3>Для неї</h3>
+              <a href="catalog.html" class="gift-btn">Перейти</a>
+            </div>
+            <div class="gift-icon">🎁</div>
+          </div>
+
+          <div class="gift-card for-him">
+            <div>
+              <p>Добірка подарунків у розділі<br>Побутова техніка</p>
+              <h3>Для нього</h3>
+              <a href="catalog.html" class="gift-btn">Перейти</a>
+            </div>
+            <div class="gift-icon">🎁</div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="rec-heading">
+        <div class="section-header">
+          <h2 class="section-title" id="rec-heading">Рекомендації на основі ваших переглядів</h2>
+        </div>
+        <div class="products-row-5">
+          <article class="product-card">
+            <button type="button" class="wishlist-btn" aria-label="В обране">♡</button>
+            <img src="hair-styler.svg" alt="Фен BaByliss">
+            <div>
+              <h3 class="product-title">Фен BaByliss 6715DE</h3>
+              <div class="old-price">4 299 ₴</div>
+              <div class="current-price">3 699 ₴</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <button type="button" class="wishlist-btn" aria-label="В обране">♡</button>
+            <img src="hair-styler.svg" alt="Фен Rowenta">
+            <div>
+              <h3 class="product-title">Фен Rowenta CV5910F0</h3>
+              <div class="current-price neutral">999 ₴</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <button type="button" class="wishlist-btn" aria-label="В обране">♡</button>
+            <img src="hair-styler.svg" alt="Фен Philips">
+            <div>
+              <h3 class="product-title">Фен Philips BHD350/10</h3>
+              <div class="old-price">1 699 ₴</div>
+              <div class="current-price">1 414 ₴</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <button type="button" class="wishlist-btn" aria-label="В обране">♡</button>
+            <img src="hair-styler.svg" alt="Фен Remington">
+            <div>
+              <h3 class="product-title">Фен Remington D3190</h3>
+              <div class="current-price neutral">1 799 ₴</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <button type="button" class="wishlist-btn" aria-label="В обране">♡</button>
+            <img src="hair-styler.svg" alt="Фен Braun">
+            <div>
+              <h3 class="product-title">Фен Braun HD 385</h3>
+              <div class="current-price neutral">1 899 ₴</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="expected-heading">
+        <div class="section-header">
+          <h2 class="section-title" id="expected-heading">Найбільш очікувані товари</h2>
+        </div>
+
+        <div class="featured-layout">
+          <article class="product-card is-featured">
+            <button type="button" class="wishlist-btn" aria-label="В обране">♡</button>
+            <img src="laptop.svg" alt="Apple MacBook Pro 16">
+            <div>
+              <h3 class="product-title">Ноутбук Apple MacBook Pro 16" M1 Max 1TB 2021 (MK1A3UA/A) Space Gray</h3>
+              <div class="old-price">136 999 ₴</div>
+              <div class="current-price">122 999 ₴</div>
+              <div class="card-footer-note">Очікується</div>
+            </div>
+          </article>
+
+          <div class="small-cards-grid">
+            <article class="product-card">
+              <button type="button" class="wishlist-btn" aria-label="В обране">♡</button>
+              <img src="playstation.svg" alt="DualSense Galactic Purple">
+              <div>
+                <h3 class="product-title">Бездротовий геймпад PlayStation 5 DualSense Galactic Purple</h3>
+                <div class="current-price neutral">2 999 ₴</div>
+                <div class="card-footer-note">Очікується</div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <button type="button" class="wishlist-btn" aria-label="В обране">♡</button>
+              <img src="watch.svg" alt="Samsung The Freestyle">
+              <div>
+                <h3 class="product-title">Samsung The Freestyle (SP-LSP3BLAXXUA)</h3>
+                <div class="current-price neutral">26 999 ₴</div>
+                <div class="card-footer-note">Очікується</div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <button type="button" class="wishlist-btn" aria-label="В обране">♡</button>
+              <img src="laptop.svg" alt="Apple iPad Mini 2021">
+              <div>
+                <h3 class="product-title">Планшет Apple iPad Mini 2021 Wi-Fi 256 GB Space Gray</h3>
+                <div class="old-price">26 999 ₴</div>
+                <div class="current-price">23 999 ₴</div>
+                <div class="card-footer-note">Очікується</div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <button type="button" class="wishlist-btn" aria-label="В обране">♡</button>
+              <img src="iphone.svg" alt="Xiaomi Redmi Note 11 Pro">
+              <div>
+                <h3 class="product-title">Мобільний телефон Xiaomi Redmi Note 11 Pro 6/128GB</h3>
+                <div class="current-price neutral">10 999 ₴</div>
+                <div class="card-footer-note">Очікується</div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="center-action-wrap">
+          <button type="button" class="show-all-btn">Показати ще</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const openBtn = document.getElementById('openDrawer');
+    const closeBtn = document.getElementById('closeDrawer');
+    const drawer = document.getElementById('mobileDrawer');
+    const overlay = document.getElementById('drawerOverlay');
+
+    function openDrawer() {
+      drawer.classList.add('is-open');
+      overlay.classList.add('is-open');
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('is-open');
+      overlay.classList.remove('is-open');
+    }
+
+    openBtn.addEventListener('click', openDrawer);
+    closeBtn.addEventListener('click', closeDrawer);
+    overlay.addEventListener('click', closeDrawer);
+  </script>
+</body>
+</html>
